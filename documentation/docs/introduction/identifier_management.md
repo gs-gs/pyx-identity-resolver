@@ -1,6 +1,15 @@
+---
+sidebar_position: 4
+title: Identifier Management
+---
+
+import Disclaimer from './../\_disclaimer.mdx';
+
+<Disclaimer />
+
 # Identifier Management
 
-Authorized users can register identifier schemes using namespaces, and application identifiers that will be used in the Identity Digital Resolver (IDR) service. Each identifier scheme is represented by a single JSON object, stored in a separate file where the path is constructed as: `{OBJECT_STORAGE_BUCKET_NAME}/{IDENTIFIER_PATH}/{namespace}.json`.
+Authorized users can register identifier schemes using namespaces, and application identifiers that will be used in the Identity Digital Resolver (IDR) service.
 
 ## Identifier Structure
 
@@ -40,10 +49,10 @@ Here's an example of the structure for a single identifier scheme:
 
 Each identifier JSON object consists of the following top-level properties:
 
-- `id`: A unique identifier for the scheme, in the format "{IDENTIFIER_PATH}/{namespace}"
+- `id`: A unique identifier for the scheme, in the format `{IDENTIFIER_PATH}/{namespace}`
 - `namespace`: The namespace of the identifier scheme
-- `namespaceURI`: The base URI of the namespace link type vocabulary (if applicable). Defaults to internal URI `http://localhost:3000/voc/`.
-- `namespaceProfile`: The URI to the link type vocabulary profile of the namespace (if applicable). Defaults to internal URI `http://localhost:3000/voc/?show=linktypes`.
+- `namespaceURI`: The base URI of the namespace link type vocabulary (if applicable). Defaults to internal URI `http://localhost:3000/api/1.0.0/voc/`.
+- `namespaceProfile`: The URI to the link type vocabulary profile of the namespace (if applicable). Defaults to internal URI `http://localhost:3000/api/1.0.0/voc/?show=linktypes`.
 - `applicationIdentifiers`: An array of application identifiers associated with this namespace that can be registered with the IDR.
 
 ## Application Identifier Properties
@@ -107,4 +116,4 @@ The Identifier Management API supports the following operations:
 2. Retrieve an identifier by namespace
 3. Delete an identifier by namespace
 
-See the [API specification](http://localhost:3000/api#/Identifiers) for details.
+See the [API specification](http://localhost:3000/api-docs#/Identifiers) for details.

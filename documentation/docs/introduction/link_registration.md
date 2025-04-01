@@ -1,3 +1,12 @@
+---
+sidebar_position: 7
+title: Link Registration
+---
+
+import Disclaimer from './../\_disclaimer.mdx';
+
+<Disclaimer />
+
 # Link Registration
 
 Authorized users can register identity resolvers through the API. The data will be constructed and stored in a JSON file, with the filename determined by the namespace, primary identifier and qualifier path.
@@ -146,4 +155,4 @@ The Link Registration API supports the following operations:
 
 1. Create or Upset a link registration
 
-See the [API specification](http://localhost:3000/api#/Link%20Registration) for details.
+See the [API specification](http://localhost:3000/api-docs#/Link%20Registration) for details.
