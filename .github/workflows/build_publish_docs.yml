@@ -2,10 +2,10 @@ name: Build and Deploy Docs
 
 on:
   push:
-    branches: [next, main]
-    paths:
-      - ".github/workflows/build_publish_docs.yml"
-      - "documentation/**" # Added to track documentation changes
+    branches: [next, main, docs/update_documentation_site_structure]
+    # paths:
+    #   - ".github/workflows/build_publish_docs.yml"
+    #   - "documentation/**" # Added to track documentation changes
 
 jobs:
   deploy:
