@@ -11,7 +11,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: "Identifier scheme management",
-    image: "/img/feature-1.png",
+    image: require("@site/static/img/feature-1.png").default,
     description: (
       <>
         Registering and configuring identifier schemes for link registration and
@@ -21,7 +21,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: "Link registration and management",
-    image: "/img/feature-2.png",
+    image: require("@site/static/img/feature-2.png").default,
     description: (
       <>
         Allowing registry operators or identifier owners to add and update links
@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: "Link resolution",
-    image: "/img/feature-3.png",
+    image: require("@site/static/img/feature-3.png").default,
     description: (
       <>
         Enabling value chain actors to access additional information associated
