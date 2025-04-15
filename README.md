@@ -32,7 +32,7 @@ To quickly set up and run the Identity Resolver using the docker-compose.yaml fi
 docker compose up -d;
 ```
 
-For more detailed setup and configuration options, refer to the [Quick Start Guide](./app/README.md).
+For more detailed setup and configuration options, refer to the [documentation site](https://pyx-industries.github.io/pyx-identity-resolver/).
 
 ## Contributing
 
