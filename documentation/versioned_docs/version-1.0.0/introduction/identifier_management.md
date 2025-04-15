@@ -55,6 +55,52 @@ Each identifier JSON object consists of the following top-level properties:
 - `namespaceProfile`: The URI to the link type vocabulary profile of the namespace (if applicable). Defaults to internal URI `http://localhost:3000/api/1.0.0/voc/?show=linktypes`.
 - `applicationIdentifiers`: An array of application identifiers associated with this namespace that can be registered with the IDR.
 
+### Create/Update Identifier Flow
+
+```mermaid
+graph TD
+    A[Start] --> B["Receive Create or <br> Update Request <br> (JSON Payload)"];
+    B --> C{Validate Request Structure};
+    C -->|Invalid| D[Return Validation <br> Error - 400];
+    C -->|Valid| E{Validate Identifier Rules};
+    E -->|Invalid| D;
+    E -->|Valid| F["Generate File Name: <br> {path}/{namespace}.json"];
+    F --> G[Construct Identifier JSON];
+    G --> H[Store/Overwrite in MinIO];
+    H --> I["Return Success <br> Response (200/201)"];
+    I --> J[End];
+```
+
+### Retrieve Identifier Flow
+
+```mermaid
+graph TD
+    K[Start] --> L["Receive Retrieve <br> Request (Namespace)"];
+    L --> M{Validate Namespace <br> Parameter};
+    M -->|Invalid| N[Return Validation <br> Error - 400];
+    M -->|Valid| O["Generate File Name: <br> {path}/{namespace}.json"];
+    O --> P{Check if File Exists in MinIO};
+    P -->|No| Q[Return Not Found <br> Error - 404];
+    P -->|Yes| R[Read Identifier <br> JSON from MinIO];
+    R --> S["Return Identifier Data <br> (200)"];
+    S --> T[End];
+```
+
+### Delete Identifier Flow
+
+```mermaid
+graph TD
+    U[Start] --> V["Receive Delete Request <br> (Namespace)"];
+    V --> W{Validate Namespace <br> Parameter};
+    W -->|Invalid| X[Return Validation <br> Error - 400];
+    W -->|Valid| Y["Generate File Name: <br> {path}/{namespace}.json"];
+    Y --> Z{Check if File Exists in MinIO};
+    Z -->|No| AA[Return Not Found <br> Error - 404];
+    Z -->|Yes| BB[Delete File from MinIO];
+    BB --> CC["Return Success Response <br> (204)"];
+    CC --> DD[End];
+```
+
 ## Application Identifier Properties
 
 Each application identifier within the `applicationIdentifiers` array consists of the following properties:

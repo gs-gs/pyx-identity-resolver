@@ -142,7 +142,7 @@ flowchart
     D -- No --> E{redirection possible?}
     D -- Yes --> F{link type requested?}
     E -- No --> G[not found 404]
-    E -- Yes --> H[redirect to external resolver 307]
+    E -- Yes --> H[redirect to external <br>  resolver 307]
     F -- No --> I[redirect to default link 307]
     F -- Yes --> K{linktypes=all?}
     K -- Yes --> L[create/append list of links]
@@ -150,9 +150,9 @@ flowchart
     J -- Yes --> L
     J -- No --> X[return list of links 200]
     K -- No --> M{matching link available?}
-    M -- Yes --> N[redirect to matching link 307]
+    M -- Yes --> N[redirect to matching <br>  link 307]
     M -- No --> O{matching link at next level?}
-    O -- Yes --> P[redirect to requested link type at next level up 307]
+    O -- Yes --> P[redirect to requested link <br> type at next level up 307]
     O -- No --> Q[redirect to default 307]
 ```
 
