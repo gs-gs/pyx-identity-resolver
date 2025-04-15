@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "documentation/**"
+      - ".github/workflows/build_publish_docs.yml"
 
 jobs:
   deploy:
@@ -20,8 +23,8 @@ jobs:
           cache-dependency-path: "./documentation/yarn.lock"
 
       - name: Install and Build
-        working-directory: ./documentation
         run: |
+          cd documentation
           yarn install --frozen-lockfile
           yarn build
         env:
