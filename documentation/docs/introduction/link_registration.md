@@ -79,16 +79,16 @@ The following diagram illustrates the flow of the link registration process, inc
 
 ```mermaid
 graph TD
-    A[Start] --> B[Receive Link Registration Request]
+    A[Start] --> B[Receive Link Registration <br> Request]
     B --> C{Validate Request}
-    C -->|Invalid| D[Return Validation Error - 400]
-    C -->|Valid| E[Validate Namespace and Identifiers]
+    C -->|Invalid| D[Return Validation <br>  Error - 400]
+    C -->|Valid| E{Validate Namespace <br>  and Identifiers}
     E -->|Invalid| D
     E -->|Valid| F[Generate File Name]
     F --> G{Check if File Exists}
     G -->|No| H[Construct New Link Set]
     G -->|Yes| I[Retrieve Existing Link Set]
-    I --> J[Merge New Data with Existing]
+    I --> J[Merge New Data <br> with Existing]
     J --> K[Construct Updated Link Set]
     H --> L[Store in MinIO]
     K --> L
