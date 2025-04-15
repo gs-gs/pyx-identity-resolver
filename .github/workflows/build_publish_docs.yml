@@ -1,11 +1,13 @@
 name: Build and Deploy Docs
 
 on:
+  workflow_dispatch:
   push:
-    branches: [next, main]
+    branches:
+      - master
     paths:
+      - "documentation/**"
       - ".github/workflows/build_publish_docs.yml"
-      - "documentation/**" # Added to track documentation changes
 
 jobs:
   deploy:
@@ -21,8 +23,8 @@ jobs:
           cache-dependency-path: "./documentation/yarn.lock"
 
       - name: Install and Build
-        working-directory: ./documentation
         run: |
+          cd documentation
           yarn install --frozen-lockfile
           yarn build
         env:
